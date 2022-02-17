@@ -62,6 +62,9 @@ The purpose of this training course is to remove the magic associated with deplo
 
 15. Open README-step2 in VS Code
 
+*https://github.com/n4demo/learn-to-run-apps-on-kubernetes/blob/main/README-step2.md*
+
+
 
 
 
