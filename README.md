@@ -8,11 +8,13 @@ The purpose of this training course is to remove the magic associated with deplo
 
 1. Request access rights to an AKS cluster from your trainer
 2. In a browser go to https://portal.azure.com
-3. Find subscriptions and select the Azure sbscription that has the AKS cluster already provisioned  
-4. Search under AKS to find your cluster  (aks-demo)
+3. Find subscriptions and select the *Visual Studio Enterprise Subscription MPN*, or Azure sbscription that has the AKS cluster already provisioned  
+4. From the top serch bar, search under AKS to find your cluster  (aks-demo)
 5. Select your cluster.
 
-6. From the Azure Portal activate the Azure Command Line Interface (AZ CLI)
+6. From the Azure Portal activate the Azure Command Line Interface (AZ CLI) from the >_ icon at the top right.
+
+7. If you have no storage - click create storage and wait for it to complete and shows you a terminal prompt
 
 ## From now on all commands will be executed from the AZ CLI:
 
@@ -20,11 +22,17 @@ The purpose of this training course is to remove the magic associated with deplo
 
 *az version*
 
-8. Download credentials that give you access to the AKS Cluster
+8. Check the version of the kubectl command
+
+*kubectl version*
+
+## Does it tell you whether you are logged into the server?
+
+9. Download credentials that give you access to the AKS Cluster
 
 *az aks get-credentials --name aks-demo --resource-group aks-rg*
 
-9. Check the version of the kubectl command
+8. Check again the version of the kubectl command
 
 *kubectl version*
 
@@ -51,6 +59,8 @@ The purpose of this training course is to remove the magic associated with deplo
 *kubectl get all -o wide*
 
 ## congratulations - you now have access to AKS and are ready to start deploying a container
+
+15. Open README-step2 in VS Code
 
 
 

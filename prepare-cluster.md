@@ -2,7 +2,7 @@
 az group create --location uksouth --name aks-rg
 
 ### create AKS cluster using your *** unique name **
-az aks create --resource-group aks-rg --name aks-demo
+az aks create --resource-group aks-rg --name aks-demo --generate-ssh-keys
 
 ### download credentials into local file
 az aks get-credentials --name aks-demo --resource-group aks-rg

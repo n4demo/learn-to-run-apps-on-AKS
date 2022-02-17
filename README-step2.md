@@ -2,7 +2,8 @@
 
 ## From now on all commands will be executed from the AZ CLI:
 
-14. to Save time - let's create an ALIAS for the kubectl.exe command. Setup any easy alias
+14. to Save time - let's create an ALIAS for the kubectl.exe command. Setup any easy alias.
+
 *alias k=kubectl*
 
 9. Check the alias works
