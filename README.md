@@ -32,6 +32,8 @@ The purpose of this training course is to remove the magic associated with deplo
 
 *az aks get-credentials --name aks-demo --resource-group aks-rg*
 
+## Where were the downloaded credential stored?
+
 8. Check again the version of the kubectl command
 
 *kubectl version*
