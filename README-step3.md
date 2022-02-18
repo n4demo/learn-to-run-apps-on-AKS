@@ -1,13 +1,13 @@
 # Learn to run apps on Kubernetes - Step 3 of 3
 
-## Update the configuration of the DEPLOYMENT by updating the yaml file and re-deploying:
+## Update the DEPLOYMENT by updating the yaml file and re-deploying:
 
-- Apply DEPLOYMENT POD SERVICEACCOUNT which does not mount a security token and hence has no permissions to the K8s API server.
+- Apply DEPLOYMENT POD SERVICEACCOUNT To not mount a security token hence revoking permissions to the K8s API server.
 - Apply DEPLOYMENT POD SECURITYCONTEXT so the containers do not run as root (admin) privileges and cannot escalate.
 - Apply DEPLOYMENT REPLICAS to increase the number of PODS each hosting a single NGINX container to 2.
-- Apply DEPLOYMENT POD RESOURCES so it REQUESTS only 20% of a CPU Core upon startup and LIMITS to 20% of CPU as a maximum.
-- Apply DEPLOYMENT POD RESOURCES so it REQUESTS only 200MB of memory upon startup and LIMITS to 200MB of memory as a maximum.
-- Apply DEPLOYMENT READINESS and LIVENESSPROBES to probe when a container is ready to receive requests and if it is still responsive.
+- Apply DEPLOYMENT POD RESOURCES so it REQUESTS only 20% of a CPU Core upon startup and LIMITS to 20% of CPU.
+- Apply DEPLOYMENT POD RESOURCES so it REQUESTS only 200MB of memory at startup and LIMITS to 200MB of memory.
+- Apply DEPLOYMENT READINESS and LIVENESSPROBES to probe when a container is ready to receive requests and still responsive.
 
 ## Edit the DEPLOYMENT yaml text file using the AZ CLI online editor {}. 
 
@@ -109,7 +109,7 @@ replicaset.apps/firstname-deploy-74bccf899c   0         0         0       22m
 ### Optional: 
 
 31. Create a configmap object containing an environment variable firstname=brian. Injec this environment variable into the POD. 
-hint https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
+### hint https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
 
 
 
