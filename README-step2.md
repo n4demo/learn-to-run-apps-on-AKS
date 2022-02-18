@@ -1,4 +1,6 @@
 
+# Learn to run apps on Kubernetes - Page 2
+
 ## Cheat sheet https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 ## From now on all commands will be executed from the AZ CLI:
@@ -24,7 +26,7 @@
 
 ## We will perform the previous steps by creating YAML text files so these can eventually be deployed into source control such as GIT 
 
-# Important that you use you own name below without any spaces
+# !!!! Important that you use you own name below without any spaces
 
 12. Create a new yaml formatted text file (ns.yaml) containing a new NAMESPACE by using the kubectl command
 
@@ -65,6 +67,25 @@ k config set-context --current --namespace=brian
 20. From the AZ CLI - use the file to create the actual DEPLOYMENT in AKS
 
 *k create -f brian-deploy.yaml*
+
+21. Create a new yaml formatted text file (brian-service.yaml) containing a new SERVICE pointing to your DEPLOYMENT (brian-deploy) in your own NAMESPACE 
+
+*k expose deployment brian-deploy --name=brian-loadbalancer --type=LoadBalancer --port=80 --target-port=80 --dry-run=client -n=brian -o yaml > brian-service.yaml*
+
+19. From the AZ CLI - view the content of brian-deploy.yaml
+
+*cat brian-service.yaml*
+
+20. From the AZ CLI - use the file to create the actual DEPLOYMENT in AKS
+
+*k create -f brian-service.yaml*
+
+21. Finally, check to see if all the objects are ready. Repeat until you can obtain the IP address of the load balancer and enter into browser http://ip-address
+
+*k get all*
+
+*ls*
+
 
 
 
