@@ -6,8 +6,8 @@ The purpose of this training course is to remove the magic associated with deplo
 
 ## Prerequisites
 
-1. Request access rights to your Kubernetes cluster from your trainer
-2. For AKS, in a browser go to https://portal.azure.com
+1. Request access rights to your Kubernetes cluster (K8s) from your trainer
+2. For MS AKS, in a browser go to https://portal.azure.com
 3. Find Azure Subscriptions and select the *Visual Studio Enterprise Subscription MPN*, or the Azure Subscription that has an AKS training cluster already provisioned.  
 4. From the top search bar, search under AKS to find your cluster (aks-demo).
 5. Select your AKS cluster.
@@ -56,7 +56,7 @@ The purpose of this training course is to remove the magic associated with deplo
 
 *kubectl get svc*
 
-14. see all Kubernetes objects in the current namespace (default):
+14. see all Kubernetes (K8s) objects in the current namespace (default):
 
 *kubectl get all -o wide*
 
