@@ -2,7 +2,7 @@
 
 ## We now need to secure the configuration of the DEPLOYMENT by updating the yaml file and re-deploying:
 
-- Edit POD configuration to use the SERVICEACCOUNT we created earlier
+- Edit POD configuration to use the SERVICEACCOUNT we created earlier. We have not given this SA any permissions to the K8s API server.
 - Edit DEPLOYMENT to increase the number of PODS each hosting a single NGINX container to 2 replicas (copies)
 - Edit the POD RESOURCES configuration so that it REQUESTS only 20% of a CPU Core upon startup and LIMITS to 30% of CPU as a maximum
 - Edit the POD RESOURCES configuration so that it REQUESTS only 200MB of memory upon startup and LIMITS to 250MB of memory as a maximum.
