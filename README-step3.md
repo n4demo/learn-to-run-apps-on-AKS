@@ -71,7 +71,7 @@ spec:
 
 *ls*
 
-*k apply -f firstname-deploy.yaml*
+*k apply -f firstname-deploy.yaml* 
 
 27. Now get K8s to return a yaml for the updated configuration:
 

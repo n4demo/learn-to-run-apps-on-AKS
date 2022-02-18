@@ -1,4 +1,4 @@
-### create a new resource group in your Azure subscription 
+### create a new resource group in your Azure subscription  
 az group create --location uksouth --name aks-rg
 
 ### create AKS cluster using your *** unique name **

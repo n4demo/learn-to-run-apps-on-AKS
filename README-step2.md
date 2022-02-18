@@ -1,4 +1,4 @@
-# Learn to run apps on Kubernetes - Step 2 of 3
+# Learn to run apps on Kubernetes - Step 2 of 3 
 
 ### Kubectl Cheat sheet https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 

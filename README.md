@@ -1,5 +1,5 @@
 # Audience
-Developers, Solution Architects
+Developers, Solution Architects  
 
 # Learn to run apps on Kubernetes - Step 1 of 3
 
