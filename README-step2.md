@@ -60,7 +60,7 @@
 
 18. Create a new yaml formatted text file (brian-deploy.yaml) containing a new DEPLOYMENT (brian-deploy) in your own NAMESPACE: 
 
-*k create deployment brian-deploy --dry-run=client -n=brian -replicas=2 --image=nginx --output yaml > brian-deploy.yaml*
+*k create deployment brian-deploy --dry-run=client -n=brian -replicas=1 --image=nginx --output yaml > brian-deploy.yaml*
 
 19. From the AZ CLI - view the contents of brian-deploy.yaml:
 
