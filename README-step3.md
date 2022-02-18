@@ -76,6 +76,23 @@ spec:
 
 *k get all -n firstname*
 
+```
+firstname@Azure:~$ k get all -n firstname
+NAME                                    READY   STATUS    RESTARTS   AGE
+pod/firstname-deploy-659554944c-kwkd6   1/1     Running   0          15m
+pod/firstname-deploy-659554944c-qsf7g   1/1     Running   0          15m
+
+NAME                             TYPE           CLUSTER-IP   EXTERNAL-IP     PORT(S)        AGE
+service/firstname-loadbalancer   LoadBalancer   10.0.148.1   20.108.129.15   80:30209/TCP   21m
+
+NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/firstname-deploy   2/2     2            2           22m
+
+NAME                                          DESIRED   CURRENT   READY   AGE
+replicaset.apps/firstname-deploy-659554944c   2         2         2       15m
+replicaset.apps/firstname-deploy-74bccf899c   0         0         0       22m
+```
+
 28. Run a browser and enter the IP address as below. All being well you should see the homepage of the NGINX app 
 
 *http://ip-address*
@@ -83,9 +100,6 @@ spec:
 29. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
 
 # Congratulations !!
-
-
-
 
 
 
