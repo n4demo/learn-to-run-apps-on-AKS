@@ -2,18 +2,18 @@
 
 ## We now need to secure the configuration of the DEPLOYMENT by updating the yaml file and re-deploying:
 
-- Edit POD configuration to use the SERVICEACCOUNT we created earlier. We have not given this SA any permissions to the K8s API server.
-- Edit DEPLOYMENT to increase the number of PODS each hosting a single NGINX container to 2 replicas (copies).
-- Edit the POD RESOURCES configuration so that it REQUESTS only 20% of a CPU Core upon startup and LIMITS to 30% of CPU as a maximum.
-- Edit the POD RESOURCES configuration so that it REQUESTS only 200MB of memory upon startup and LIMITS to 250MB of memory as a maximum.
-- Edit the POD SECURITYCONTEXT so the containers do not have root (admin) privileges.
-- Edit DEPLOYMENT for container to use READINESS and LIVENESSPROBES to determine when a container is ready to receive requests and if it is still responsive.
+- Apply DEPLOYMENT POD SERVICEACCOUNT which created earlier which does not mount a security token and hence has no permissions to the K8s API server.
+- Apply DEPLOYMENT POD SECURITYCONTEXT so the containers do not run as root (admin) privileges and cannot escalate.
+- Apply DEPLOYMENT REPLICAS to increase the number of PODS each hosting a single NGINX container to 2.
+- Apply DEPLOYMENT POD RESOURCES configuration so that it REQUESTS only 20% of a CPU Core upon startup and LIMITS to 20% of CPU as a maximum.
+- Apply DEPLOYMENT POD RESOURCES configuration so that it REQUESTS only 200MB of memory upon startup and LIMITS to 200MB of memory as a maximum.
+- Apply DEPLOYMENT READINESS and LIVENESSPROBES to determine when a container is ready to receive requests and if it is still responsive.
 
-## We will perform each task by editing the DEPLOYMENT yaml text file using the AZ CLI online editor {}. This so we can re-apply to our K8s cluster and being saved into source control such as GIT.
+## Perform each task by editing the DEPLOYMENT yaml text file using the AZ CLI online editor {}. 
 
 23. Open the deployment yaml file (firstname-deploy.yaml) by first clicking the icon for the AZ CLI editor {} and then double clicking on your deployment yaml file.
 
-24. Work your way down the file in AZ CLI adding in the new code as described below:
+24. EITHER, edit the file in AZ CLI adding in the new code as described below, OR copy to notepad, perform a search and replace on firstname and overwrite:
 
 ```
 apiVersion: apps/v1
@@ -34,6 +34,11 @@ spec:
       labels:
         app: firstname-deploy
     spec:
+      securityContext:
+        runAsUser: 1000
+          capabilities:
+          add: ["SYS_TIME"]
+        allowPrivilegeEscalation: false
       serviceAccountName: firstname-sa
       automountServiceAccountToken: false
       containers:
@@ -41,8 +46,8 @@ spec:
         name: nginx
         resources:
           limits:
-            memory: "250M"
-            cpu: 0.25
+            memory: "200M"
+            cpu: 0.20
           requests:
             memory: "200M"
             cpu: 0.20
@@ -72,7 +77,7 @@ spec:
 
 *k get deploy firstname-deploy -o yaml*
 
-27. Check to see if all the objects are ready. Repeat until you can obtain the IP address of the load balancer: 
+28. Check to see if all the objects are ready. Repeat until you can obtain the IP address of the load balancer: 
 
 *k get all -n firstname*
 
@@ -93,13 +98,18 @@ replicaset.apps/firstname-deploy-659554944c   2         2         2       15m
 replicaset.apps/firstname-deploy-74bccf899c   0         0         0       22m
 ```
 
-28. Run a browser and enter the IP address as below. All being well you should see the homepage of the NGINX app 
+29. Run a browser and enter the IP address as below. All being well you should see the homepage of the NGINX app 
 
 *http://20.108.129.15*
 
-29. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
+30. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
 
-# Congratulations !!
+# Congratulations you are well on your way to study for the CNCF CKAD exam!!
+
+### Optional: 
+
+31. Create a configmap object containing an environment variable firstname=brian. Injec this environment variable into the POD. 
+hint https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
 
 
 
