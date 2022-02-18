@@ -109,7 +109,7 @@ replicaset.apps/firstname-deploy-74bccf899c   0         0         0       22m
 ### Optional: 
 
 31. Create a configmap object containing an environment variable firstname=brian. Injec this environment variable into the POD. 
-### hint https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
+#### hint https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
 
 
 
