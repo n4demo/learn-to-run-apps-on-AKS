@@ -26,61 +26,59 @@
 
 ## We will perform each task by creating and in future editing a YAML text file. This so we can edit and apply to any K8s cluster and should be saved into source control such as GIT 
 
+# - Important. Replace firstname with your own first name
 
-# - Important. Replace brian with you own firstname-
+12. Create a new yaml formatted text file (firstname-ns.yaml) containing a new NAMESPACE by using the kubectl command:
 
+*k create namespace firstname --dry-run=client --output yaml > firstname-ns.yaml*
 
-12. Create a new yaml formatted text file (brian-ns.yaml) containing a new NAMESPACE by using the kubectl command:
+13. From the AZ CLI - view the content of firstname-ns.yaml:
 
-*k create namespace brian --dry-run=client --output yaml > brian-ns.yaml*
-
-13. From the AZ CLI - view the content of brian-ns.yaml:
-
-*cat brian-ns.yaml*
+*cat firstname-ns.yaml*
 
 14. From the AZ CLI - use the yaml file to create the actual NAMESPACE in the AKS cluster:
 
-*k create --filename brian-ns.yaml*
+*k create --filename firstname-ns.yaml*
 
-15. From the AZ CLI - switch into this NAMESPACE (if you don't, you will need to include -n=brian in every following command):
+15. From the AZ CLI - switch into this NAMESPACE (if you don't, you will need to include -n=firstname in every following command):
 
-*k config set-context --current --namespace=brian*
+*k config set-context --current --namespace=firstname*
 
-15. Create a new yaml formatted text file (brian-sa.yaml) containing a new SERVICEACCOUNT in your own NAMESPACE: 
+15. Create a new yaml formatted text file (firstname-sa.yaml) containing a new SERVICEACCOUNT in your own NAMESPACE: 
 
-*k create serviceaccount brian-sa --namespace=brian --dry-run=client --output yaml > brian-sa.yaml*
+*k create serviceaccount firstname-sa --namespace=firstname --dry-run=client --output yaml > firstname-sa.yaml*
 
-16. From the AZ CLI - view the content of brian-sa.yaml:
+16. From the AZ CLI - view the content of firstname-sa.yaml:
 
-*cat brian-sa.yaml*
+*cat firstname-sa.yaml*
 
 17. From the AZ CLI, use the file to create the actual SERVICEACCOUNT in AKS:
 
-*k create -n=brian --filename brian-sa.yaml*
+*k create -n=firstname --filename firstname-sa.yaml*
 
-18. Create a new yaml formatted text file (brian-deploy.yaml) containing a new DEPLOYMENT (brian-deploy) in your own NAMESPACE: 
+18. Create a new yaml formatted text file (firstname-deploy.yaml) containing a new DEPLOYMENT (firstname-deploy) in your own NAMESPACE: 
 
-*k create deployment brian-deploy --dry-run=client -n=brian -replicas=1 --image=nginx --output yaml > brian-deploy.yaml*
+*k create deployment firstname-deploy --dry-run=client -n=firstname -replicas=1 --image=nginx --output yaml > firstname-deploy.yaml*
 
-19. From the AZ CLI - view the contents of brian-deploy.yaml:
+19. From the AZ CLI - view the contents of firstname-deploy.yaml:
 
-*cat brian-deploy.yaml*
+*cat firstname-deploy.yaml*
 
 20. From the AZ CLI - use the file to create the actual DEPLOYMENT in AKS:
 
-*k create -f brian-deploy.yaml*
+*k create -f firstname-deploy.yaml*
 
-21. Create a new yaml formatted text file (brian-service.yaml) containing a new SERVICE pointing to your DEPLOYMENT (brian-deploy) in your own NAMESPACE:
+21. Create a new yaml formatted text file (firstname-service.yaml) containing a new SERVICE pointing to your DEPLOYMENT (firstname-deploy) in your own NAMESPACE:
 
-*k expose deployment brian-deploy --name=brian-loadbalancer --type=LoadBalancer --port=80 --target-port=80 --dry-run=client -n=brian -o yaml > brian-service.yaml*
+*k expose deployment firstname-deploy --name=firstname-loadbalancer --type=LoadBalancer --port=80 --target-port=80 --dry-run=client -n=firstname -o yaml > firstname-service.yaml*
 
-19. From the AZ CLI - view the contents of brian-service.yaml:
+19. From the AZ CLI - view the contents of firstname-service.yaml:
 
-*cat brian-service.yaml*
+*cat firstname-service.yaml*
 
 20. From the AZ CLI - use the file to create the SERVICE (Azure load balancer) in AKS:
 
-*k create -f brian-service.yaml*
+*k create -f firstname-service.yaml*
 
 21. Check to see if all the objects are ready. Repeat until you can obtain the IP address of the load balancer: 
 
