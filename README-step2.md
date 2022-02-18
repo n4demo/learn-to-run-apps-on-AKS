@@ -27,7 +27,7 @@
 ## We will perform each task by creating and in future editing a YAML text file. This so we can edit and apply to any K8s cluster and should be saved into source control such as GIT 
 
 
-# ---- Important. You must use you own name below without any spaces ---
+# - Important. Replace brian with you own firstname-
 
 
 12. Create a new yaml formatted text file (brian-ns.yaml) containing a new NAMESPACE by using the kubectl command:
