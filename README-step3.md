@@ -104,7 +104,7 @@ replicaset.apps/firstname-deploy-74bccf899c   0         0         0       22m
 
 30. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
 
-# Congratulations! Next steps, study for https://www.cncf.io/certification/ckad/
+### Congratulations! Next steps: https://www.cncf.io/certification/ckad/
 
 ### Optional: 
 
