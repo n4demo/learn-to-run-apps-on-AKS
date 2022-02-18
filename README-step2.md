@@ -18,17 +18,17 @@
 
 *k version*
 
-{
 ## Now we are ready to go. To deploy our NGINX app in a container to AKS using best practice we have 4 ordered tasks to do:
 - Create a new isolated space in the K8s cluster to run our container. Called a NAMESPACE
 - In the new namespace create a new SERVICE ACCOUNT - this will in future link access permissions that your container has to access the AKS cluster (API)
 - In the new namespace create a new DEPLOYMENT - this will store information as to what image, how many copies and where the container(s) hosted in PODS will be deployed.
 - In the new namespace create a new load balancer SERVICE - this will store information as to how to expose the PODS to our browser.
-}
 
 ## We will perform each task by creating and in future editing a YAML text file. This so we can edit and apply to any K8s cluster and should be saved into source control such as GIT 
 
-# !!!! Important that you use you own name below without any spaces
+
+# ---- Important. You must use you own name below without any spaces ---
+
 
 12. Create a new yaml formatted text file (brian-ns.yaml) containing a new NAMESPACE by using the kubectl command:
 
