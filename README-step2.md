@@ -58,7 +58,7 @@
 
 18. Create a new yaml formatted text file (firstname-deploy.yaml) containing a new DEPLOYMENT (firstname-deploy) in your own NAMESPACE: 
 
-*k create deployment firstname-deploy --dry-run=client -n=firstname -replicas=1 --image=nginx --output yaml > firstname-deploy.yaml*
+*k create deployment firstname-deploy --dry-run=client -n=firstname --replicas=1 --image=nginx --output yaml > firstname-deploy.yaml*
 
 19. From the AZ CLI - view the contents of firstname-deploy.yaml:
 

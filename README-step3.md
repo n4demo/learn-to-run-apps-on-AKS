@@ -24,7 +24,7 @@ metadata:
   name: firstname-deploy
   namespace: firstname
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: firstname-deploy
@@ -34,24 +34,55 @@ spec:
       labels:
         app: firstname-deploy
     spec:
+      serviceAccountName: firstname-sa
+      automountServiceAccountToken: false
       containers:
       - image: nginx
         name: nginx
-        resources: {}
+        resources:
+          limits:
+            memory: "250M"
+            cpu: 0.25
+          requests:
+            memory: "200M"
+            cpu: 0.20
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3    
 
 
+25. From the Editor click ... Save
 
-20. From the AZ CLI - use the file to update the actual DEPLOYMENT in AKS:
+26. From the AZ CLI - list the file then use the file to update the actual DEPLOYMENT in AKS:
+
+*ls*
 
 *k apply -f firstname-deploy.yaml*
 
-21. Check to see if all the objects are ready. Repeat until you can obtain the IP address of the load balancer: 
+27. Now get K8s to return a yaml for the updated configuration:
+
+*k get deploy firstname-deploy -o yaml*
+
+27. Check to see if all the objects are ready. Repeat until you can obtain the IP address of the load balancer: 
 
 *k get all -n firstname*
 
-22. Run a browser and enter the IP address as below. All being well you should see the homepage of the NGINX app 
+28. Run a browser and enter the IP address as below. All being well you should see the homepage of the NGINX app 
 
 *http://ip-address*
+
+29. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
+
+# Congratulations !!
 
 
 
