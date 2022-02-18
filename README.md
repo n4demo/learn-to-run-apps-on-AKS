@@ -61,7 +61,7 @@ The purpose of this training course is to remove the magic associated with deplo
 
 *kubectl get all -o wide*
 
-## Congratulations - you now have access to an AKS cluster and are ready to start deploying a simple web app called NGINX from a DOCKER image held in DockerHub https://hub.docker.com/_/nginx
+#### Congratulations - you now have access to an AKS cluster and are ready to start deploying a simple web app called NGINX from a DOCKER image held in DockerHub https://hub.docker.com/_/nginx
 
 15. Open README-step2 in VS Code
 
