@@ -2,65 +2,65 @@
 Developers, Solution Architects
 
 # Learn to run apps on Kubernetes - Page1
-The purpose of this training course is to remove the magic associated with deploying containerised applications to a MS AKS cluster.
+The purpose of this training course is to remove the magic associated with deploying a single containerised application to any Kubernetes cluster.
 
 ## Prerequisites
 
-1. Request access rights to an AKS cluster from your trainer
-2. In a browser go to https://portal.azure.com
-3. Find subscriptions and select the *Visual Studio Enterprise Subscription MPN*, or Azure sbscription that has the AKS cluster already provisioned  
-4. From the top serch bar, search under AKS to find your cluster  (aks-demo)
-5. Select your cluster.
+1. Request access rights to your Kubernetes cluster from your trainer
+2. For AKS, in a browser go to https://portal.azure.com
+3. Find Azure Subscriptions and select the *Visual Studio Enterprise Subscription MPN*, or the Azure Subscription that has an AKS training cluster already provisioned.  
+4. From the top search bar, search under AKS to find your cluster (aks-demo).
+5. Select your AKS cluster.
 
-6. From the Azure Portal activate the Azure Command Line Interface (AZ CLI) from the >_ icon at the top right.
+6. From the Azure Portal, activate the Azure Command Line Interface (AZ CLI) by clicking on the  **>_** icon at the top right.
 
-7. If you have no storage - click create storage and wait for it to complete and shows you a terminal prompt
+7. If you have no storage provisioned - click **Create Storage** and wait for it to complete and displaying a terminal prompt
 
 ## From now on all commands will be executed from the AZ CLI:
 
-7. Check the version of the AZ command
+7. Check the version of the AZ command:
 
 *az version*
 
-8. Check the version of the kubectl command
+8. Check the version of the kubectl.exe command (pronounced - cube-control):
 
 *kubectl version*
 
 ## Does it tell you whether you are logged into the server?
 
-9. Download credentials that give you access to the AKS Cluster
+9. Download credentials that give you access to the AKS Cluster:
 
 *az aks get-credentials --name aks-demo --resource-group aks-rg*
 
 ## Where were the downloaded credential stored?
 
-8. Check again the version of the kubectl command
+8. Check again the version of the kubectl command:
 
 *kubectl version*
 
 ### test that the downloaded credentials work ok by entering each command below
 
-10. test that there are worker nodes (servers) that can host your containers
+10. test that there are worker nodes (servers) that can host your containers:
 
 *kubectl get nodes*
 
-11. count how many  kubernetes PODS there are (a container runs inside a pod)
+11. count how many  kubernetes PODS there are (a container runs inside a pod):
 
 *kubectl get pods*
 
-12. count how many Kubernetes DEPLOYMENTS there are (pods are configured and managed by deployments)
+12. count how many Kubernetes DEPLOYMENTS there are (pods are configured and managed by deployments):
 
 *kubectl get deploy*
 
-13. count how many Kubernetes SERVICES are (pods usually receive requests from Services)
+13. count how many Kubernetes SERVICES are (pods usually receive requests from Services):
 
 *kubectl get svc*
 
-14. see everything
+14. see all Kubernetes objects in the current namespace (default):
 
 *kubectl get all -o wide*
 
-## congratulations - you now have access to AKS and are ready to start deploying a container
+## Congratulations - you now have access to an AKS cluster and are ready to start deploying a simple web app called NGINX from a DOCKER image held in DockerHub https://hub.docker.com/_/nginx
 
 15. Open README-step2 in VS Code
 
