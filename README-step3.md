@@ -1,5 +1,4 @@
-
-# Learn to run apps on Kubernetes - Step 3
+# Learn to run apps on Kubernetes - Step 3 of 3
 
 ## We now need to secure the configuration of the DEPLOYMENT by updating the yaml file and re-deploying:
 
