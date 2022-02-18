@@ -1,11 +1,16 @@
 
 # Learn to run apps on Kubernetes - Page 2
 
-## Cheat sheet https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+### Cheat sheet https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
-## From now on all commands will be executed from the AZ CLI:
+### helpful commands:
+#### list files *ls*
+#### view file *cat my-file.yaml*
+#### Show K8s objects *kubectl get all --namespace=my-namespace*
 
-14. to Save time - let's create an ALIAS for the kubectl.exe command. Setup any easy alias.
+## From now on all commands will be executed from the Azure Portal AZ CLI: >_
+
+14. to Save us typing - let's create a linux ALIAS for the kubectl.exe command. 
 
 *alias k=kubectl*
 
@@ -13,18 +18,15 @@
 
 *k version*
 
-## Linux commands
-### list files *ls*
-### view file *cat my-file.yaml*
-### Show K8s objects *kubectl get all --namespace=my-namespace*
 
-## Now we are ready to go. to deploy our container to AKS using best practivce we have various tasks to perfom
+
+## Now we are ready to go. to deploy our container to AKS using best practivce we have various future tasks that we will perfom:
 - Create a new isolated space in the Kubernetes cluster called a NAMESPACE
 - In the new namespace create a new SERVICE ACCOUNT - this will the link access permissions that your container has to access the AKS cluster (API)
 - In the new namespace create a new DEPLOYMENT - this will store information as to how, how many copies and where the container(s) inside pods will be deployed.
 - In the new namespace create a new SERVICE - this will store information as to how to expose the pods to the outside world.
 
-## We will perform the previous steps by creating YAML text files so these can eventually be deployed into source control such as GIT 
+## We will perform the previous steps by creating YAML text files so these can eventually be saved into source control such as GIT 
 
 # !!!! Important that you use you own name below without any spaces
 
@@ -42,7 +44,7 @@
 
 15. From the AZ CLI - switch into this NAMESPACE
 
-k config set-context --current --namespace=brian
+**k config set-context --current --namespace=brian**
 
 15. Create a new yaml formatted text file (sa.yaml) containing a new SERVICEACCOUNT in your own NAMESPACE 
 
