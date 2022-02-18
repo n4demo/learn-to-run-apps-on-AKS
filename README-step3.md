@@ -1,15 +1,15 @@
 # Learn to run apps on Kubernetes - Step 3 of 3
 
-## We now need to secure the configuration of the DEPLOYMENT by updating the yaml file and re-deploying:
+## Update the configuration of the DEPLOYMENT by updating the yaml file and re-deploying:
 
-- Apply DEPLOYMENT POD SERVICEACCOUNT which created earlier which does not mount a security token and hence has no permissions to the K8s API server.
+- Apply DEPLOYMENT POD SERVICEACCOUNT which does not mount a security token and hence has no permissions to the K8s API server.
 - Apply DEPLOYMENT POD SECURITYCONTEXT so the containers do not run as root (admin) privileges and cannot escalate.
 - Apply DEPLOYMENT REPLICAS to increase the number of PODS each hosting a single NGINX container to 2.
-- Apply DEPLOYMENT POD RESOURCES configuration so that it REQUESTS only 20% of a CPU Core upon startup and LIMITS to 20% of CPU as a maximum.
-- Apply DEPLOYMENT POD RESOURCES configuration so that it REQUESTS only 200MB of memory upon startup and LIMITS to 200MB of memory as a maximum.
-- Apply DEPLOYMENT READINESS and LIVENESSPROBES to determine when a container is ready to receive requests and if it is still responsive.
+- Apply DEPLOYMENT POD RESOURCES so it REQUESTS only 20% of a CPU Core upon startup and LIMITS to 20% of CPU as a maximum.
+- Apply DEPLOYMENT POD RESOURCES so it REQUESTS only 200MB of memory upon startup and LIMITS to 200MB of memory as a maximum.
+- Apply DEPLOYMENT READINESS and LIVENESSPROBES to probe when a container is ready to receive requests and if it is still responsive.
 
-## Perform each task by editing the DEPLOYMENT yaml text file using the AZ CLI online editor {}. 
+## Edit the DEPLOYMENT yaml text file using the AZ CLI online editor {}. 
 
 23. Open the deployment yaml file (firstname-deploy.yaml) by first clicking the icon for the AZ CLI editor {} and then double clicking on your deployment yaml file.
 
@@ -104,7 +104,7 @@ replicaset.apps/firstname-deploy-74bccf899c   0         0         0       22m
 
 30. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
 
-# Congratulations you are well on your way to study for the CNCF CKAD exam!!
+# Congratulations! Next steps, study for https://www.cncf.io/certification/ckad/
 
 ### Optional: 
 
