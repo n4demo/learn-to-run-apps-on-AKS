@@ -95,7 +95,7 @@ replicaset.apps/firstname-deploy-74bccf899c   0         0         0       22m
 
 28. Run a browser and enter the IP address as below. All being well you should see the homepage of the NGINX app 
 
-*http://ip-address*
+*http://20.108.129.15*
 
 29. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
 
