@@ -1,7 +1,7 @@
 
 1. create a new resource group in your Azure subscription 
 
-*az group create --location uksouth --name aks-rg 
+*az group create --location uksouth --name aks-rg* 
 
 2. create AKS cluster using your *** unique name **
 
@@ -27,15 +27,15 @@
 
 7. access web server in browser
 
-*http://<ip-address>*
+*http://ip-address*
 
 8. Deploy the node4demo/python-standard:v1.0.0 web server image from Docker Hub into your kubernetes cluster
 
-* node4demo/python-standard:v1.0.0*
+*node4demo/python-standard:v1.0.0*
 
 9. deploy python in a pod in kubernetes
 
-*kubectl run  python --image=node4demo/python-standard:latest  *
+*kubectl run  python --image=node4demo/python-standard:latest 
 
 10. add a load balancer service on a public IP
 
