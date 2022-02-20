@@ -1,7 +1,7 @@
 # Audience
 Developers, Solution Architects  
 
-# Learn to run apps on Kubernetes - Step 1 of 3
+# Learn to run apps on AKS - Step 1 of 3
 
 The purpose of this training course is to remove the magic associated with deploying a single containerised application to any Kubernetes cluster.
 
@@ -17,7 +17,7 @@ The purpose of this training course is to remove the magic associated with deplo
 
 7. If you have no storage provisioned - click **Create Storage** and wait for it to complete and displaying a terminal prompt
 
-## From now on all commands will be executed from the AZ CLI:
+## From now on all commands will be executed by copying from browser to the AZ CLI:
 
 7. Check the version of the AZ command:
 

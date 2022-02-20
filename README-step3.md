@@ -1,4 +1,4 @@
-# Learn to run apps on Kubernetes - Step 3 of 3
+# Learn to run apps on AKS - Step 3 of 3
 
 ## Update the DEPLOYMENT by updating the yaml file and re-deploying:
 
