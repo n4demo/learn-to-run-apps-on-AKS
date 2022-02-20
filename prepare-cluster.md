@@ -1,7 +1,7 @@
 
 1. create a new resource group in your Azure subscription 
 
-* az group create --location uksouth --name aks-rg*
+* az group create --location uksouth --name aks-rg 
 
 2. create AKS cluster using your *** unique name **
 
