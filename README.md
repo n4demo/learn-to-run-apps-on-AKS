@@ -17,7 +17,7 @@ The purpose of this training course is to remove the magic associated with deplo
 
 7. If you have no storage provisioned - click **Create Storage** and wait for it to complete and displaying a terminal prompt
 
-## From now on all commands will be executed by copying from browser to the AZ CLI:
+## All commands can be executed by copying from browser to the AZ CLI: >_
 
 7. Check the version of the AZ command:
 
@@ -27,19 +27,19 @@ The purpose of this training course is to remove the magic associated with deplo
 
 *kubectl version*
 
-## Does it tell you whether you are logged into the server?
+### Does it tell you whether you are logged into the server?
 
 9. Download credentials that give you access to the AKS Cluster:
 
 *az aks get-credentials --name aks-demo --resource-group aks-rg*
 
-## Where were the downloaded credential stored?
+### Where were the downloaded credential stored?
 
 8. Check again the version of the kubectl command:
 
 *kubectl version*
 
-### test that the downloaded credentials work ok by entering each command below
+### Test that the downloaded credentials work ok by entering each command below
 
 10. test that there are worker nodes (servers) that can host your containers:
 
@@ -63,7 +63,7 @@ The purpose of this training course is to remove the magic associated with deplo
 
 #### Congratulations - you now have access to an AKS cluster and are ready to start deploying a simple web app called NGINX from a DOCKER image held in DockerHub https://hub.docker.com/_/nginx
 
-15. Open README-step2 in VS Code
+15. Navigate in browser
 
 *https://github.com/n4demo/learn-to-run-apps-on-kubernetes/blob/main/README-step2.md*
 

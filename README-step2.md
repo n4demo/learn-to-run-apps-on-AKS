@@ -7,7 +7,7 @@
 #### view file: *cat my-file.yaml*
 #### Show K8s objects: *kubectl get all --namespace=my-namespace*
 
-## From now on all commands will be executed from the Azure Portal AZ CLI: >_
+## All commands can be executed by copying from browser to the AZ CLI: >_
 
 14. to Save us typing - let's create a linux ALIAS for the kubectl.exe command:
 
