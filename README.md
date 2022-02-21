@@ -5,7 +5,7 @@ Developers, Solution Architects
 
 # Learn to run apps on AKS - Step 1 of 3
 
-##The purpose of this training course is to remove the magic associated with deploying a single containerised application to MS AKS. It uses the best practice approach that all configuration is applied through yaml files that are managed under source control.
+## The purpose of this training course is to remove the magic associated with deploying a single containerised application to MS AKS. It uses the best practice approach that all configuration is applied through yaml files that are managed under source control.
 
 
 # Prerequisites
