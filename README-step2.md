@@ -87,7 +87,7 @@
 
 *http://ip-address*
 
-### Congratulations - you now know how to deploy a single application container to Kubernetes using best practice YAML files!! 
+### Congratulations - you now know how to deploy a single application container to AKS using best practice YAML files!! 
 
 15. Open README-step3 in VS Code
 
