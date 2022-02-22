@@ -27,7 +27,7 @@ k version
 - In the new namespace create a new DEPLOYMENT - this will store information as to what image, how many copies and where the container(s) hosted in PODS will be deployed.
 - In the new namespace create a new load balancer SERVICE - this will store information as to how to expose the PODS to our browser.
 
-### We will perform each task by creating and in future editing a YAML text file. This so we can edit and apply to any K8s cluster and should be saved into source control such as GIT 
+### We will perform each task by creating and in future editing a YAML text file. This so we can edit and apply to any K8s cluster, saved into source control such as GIT and applied through GitOps.
 
 ## - Important. Replace firstname with your own first name
 
@@ -119,7 +119,7 @@ k get all -o wide
 
 *http://ip-address*
 
-### Congratulations - you now know how to deploy a single application container to Kubernetes using best practice YAML files!! 
+### Congratulations - you now know how to deploy a single application container to AKS using best practice YAML files!! 
 
 15. Open README-step3 in VS Code
 
