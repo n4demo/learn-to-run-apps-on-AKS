@@ -18,6 +18,8 @@ Developers, Solution Architects
 
 6. From the Azure Portal, activate the Azure Command Line Interface (AZ CLI) by clicking on the  **>_** icon at the top right.
 
+ ![The cloud shell icon is highlighted on the menu bar.](media/b4-image35.png "Cloud Shell")
+
 7. If you have no storage provisioned - click **Create Storage** and wait for it to complete and displaying a terminal prompt
 
 ## All commands can be executed by copying from browser to the AZ CLI: >_
