@@ -70,17 +70,25 @@ spec:
 
 26. From the AZ CLI - list the file then use the file to update the actual DEPLOYMENT in AKS:
 
-*ls*
+```
+ls
+```
 
-*k apply -f firstname-deploy.yaml* 
+```
+k apply -f firstname-deploy.yaml
+```
 
 27. Now get K8s to return a yaml for the updated configuration:
 
-*k get deploy firstname-deploy -o yaml*
+```
+k get deploy firstname-deploy -o yaml
+```
 
 28. Check to see if all the objects are ready. Repeat until you can obtain the IP address of the load balancer: 
 
-*k get all -n firstname*
+```
+k get all -n firstname
+```
 
 ```
 firstname@Azure:~$ k get all -n firstname

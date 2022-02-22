@@ -24,45 +24,63 @@ Developers, Solution Architects
 
 7. Check the version of the AZ command:
 
-*az version*
+```
+az version
+```
 
 8. Check the version of the kubectl.exe command (pronounced - cube-control):
 
-*kubectl version*
+```
+kubectl version
+```
 
 ### Does it tell you whether you are logged into the server?
 
 9. Download credentials that give you access to the AKS Cluster:
 
-*az aks get-credentials --name aks-demo --resource-group aks-rg*
+```
+az aks get-credentials --name aks-demo --resource-group aks-rg
+```
 
 ### Where were the downloaded credential stored?
 
 8. Check again the version of the kubectl command:
 
-*kubectl version*
+```
+kubectl version
+```
 
 ### Test that the downloaded credentials work ok by entering each command below
 
 10. test that there are worker nodes (servers) that can host your containers:
 
-*kubectl get nodes*
+```
+kubectl get nodes
+```
 
 11. count how many  kubernetes PODS there are (a container runs inside a pod):
 
-*kubectl get pods*
+```
+kubectl get pods
+```
 
 12. count how many Kubernetes DEPLOYMENTS there are (pods are configured and managed by deployments):
 
-*kubectl get deploy*
+```
+kubectl get deploy
+```
 
 13. count how many Kubernetes SERVICES are (pods usually receive requests from Services):
 
-*kubectl get svc*
+```
+kubectl get svc
+```
 
 14. see all Kubernetes (K8s) objects in the current namespace (default):
 
-*kubectl get all -o wide*
+```
+kubectl get all -o wide
+```
 
 #### Congratulations - you now have access to an AKS cluster and are ready to start deploying a simple web app called NGINX from a DOCKER image held in DockerHub https://hub.docker.com/_/nginx
 
