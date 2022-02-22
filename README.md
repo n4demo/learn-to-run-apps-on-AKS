@@ -14,6 +14,9 @@ Developers, Solution Architects
 2. For MS AKS, in a browser go to https://portal.azure.com
 3. Find Azure Subscriptions and select the *Visual Studio Enterprise Subscription MPN*, or the Azure Subscription that has an AKS training cluster already provisioned.  
 4. From the top search bar, search under AKS to find your cluster (aks-demo).
+
+ ![AKS highlighted on the menu bar.](media/sub.png "AKS")
+
 5. Select your AKS cluster.
 
 6. From the Azure Portal, activate the Azure Command Line Interface (AZ CLI) by clicking on the  **>_** icon at the top right.
