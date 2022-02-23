@@ -44,6 +44,8 @@ kubectl version
 9. Download credentials that give you access to the AKS Cluster:
 
 ```
+az account set --subscription SubscriptionID
+
 az aks get-credentials --name aks-demo --resource-group aks-rg
 ```
 
@@ -66,13 +68,15 @@ kubectl get nodes
 11. count how many  kubernetes PODS there are (a container runs inside a pod):
 
 ```
-kubectl get pods
+kubectl get pods --all-namespaces=true
 ```
 
 12. count how many Kubernetes DEPLOYMENTS there are (pods are configured and managed by deployments):
 
 ```
-kubectl get deploy
+kubectl get deployments
+
+kubectl get deployments --namespace kube-system
 ```
 
 13. count how many Kubernetes SERVICES are (pods usually receive requests from Services):
