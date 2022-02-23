@@ -1,5 +1,7 @@
 - Author Nigel Wardle. Node4
 
+ ![Docker.](media/snakes.png "Docker") 
+
 # Audience
 Developers, Solution Architects  
 
