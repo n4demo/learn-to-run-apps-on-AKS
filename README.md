@@ -3,12 +3,11 @@
 # Audience
 Developers, Solution Architects  
 
-# Learn to run apps on AKS - Step 1 of 3
+## Learn to run containerised applications on AKS - Step 1 of 3
 
-## The purpose of this training course is to remove the magic associated with deploying a single containerised application to MS AKS. It uses the best practice approach that all configuration is applied through yaml files that are managed under source control.
+### The purpose of this training course is to remove the magic associated with deploying a single containerised application to Microsoft Azure Kubernetes Service (AKS). It uses the best practice approach that all configuration is applied through yaml text files that are managed under GitHub source control.
 
-
-# Prerequisites
+## Prerequisites
 
 1. Request access rights to your Kubernetes cluster (K8s) from your trainer
 2. For MS AKS, in a browser go to https://portal.azure.com
