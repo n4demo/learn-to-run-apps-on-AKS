@@ -1,6 +1,6 @@
 # Learn to run apps on AKS - Step 3 of 3
 
-## Configure the DEPLOYMENT to best practice by updating the yaml file and re-deploying:
+## configure and lock down the DEPLOYMENT by updating the yaml file and re-deploying:
 
 - Apply DEPLOYMENT POD SERVICEACCOUNT: Not mount a security token hence revoking permissions to the K8s API server, prevent containers running as root (admin), cannot escalate, read only file system, minimum capabilites.
 - Apply DEPLOYMENT REPLICAS to increase the number of PODS each hosting a single NGINX container to 2.
