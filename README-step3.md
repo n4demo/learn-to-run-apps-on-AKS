@@ -2,8 +2,7 @@
 
 ## Configure the DEPLOYMENT to best practice by updating the yaml file and re-deploying:
 
-- Apply DEPLOYMENT POD SERVICEACCOUNT To not mount a security token hence revoking permissions to the K8s API server.
-- Apply DEPLOYMENT POD SECURITYCONTEXT to prevent containers running as root (admin), cannot escalate, read only file system, minimum capabilites.
+- Apply DEPLOYMENT POD SERVICEACCOUNT: Not mount a security token hence revoking permissions to the K8s API server, prevent containers running as root (admin), cannot escalate, read only file system, minimum capabilites.
 - Apply DEPLOYMENT REPLICAS to increase the number of PODS each hosting a single NGINX container to 2.
 - Apply DEPLOYMENT POD RESOURCES so container REQUESTS only 20% of a CPU Core upon startup and LIMITS to 20% of CPU.
 - Apply DEPLOYMENT POD RESOURCES so container REQUESTS only 200MB of memory at startup and LIMITS to 200MB of memory.
