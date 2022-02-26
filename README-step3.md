@@ -1,6 +1,6 @@
 # Learn to run apps on AKS - Step 3 of 3
 
-## Update the DEPLOYMENT by updating the yaml file and re-deploying:
+## Configure the DEPLOYMENT to best practice by updating the yaml file and re-deploying:
 
 - Apply DEPLOYMENT POD SERVICEACCOUNT To not mount a security token hence revoking permissions to the K8s API server.
 - Apply DEPLOYMENT POD SECURITYCONTEXT so the containers do not run as root (admin) privileges and cannot escalate.
