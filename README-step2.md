@@ -125,7 +125,7 @@ k logs  --namespace firstname
 
 ### Congratulations - you now know how to deploy a single application container to AKS using best practice YAML files!! 
 
-15. Open README-step3 in VS Code
+15. Go to step 3
 
 *https://github.com/n4demo/learn-to-run-apps-on-kubernetes/blob/main/README-step3.md*
 
