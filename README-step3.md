@@ -9,11 +9,13 @@
 - Apply DEPLOYMENT READINESS and LIVENESS PROBES to probe when a container is ready to receive requests and is still responsive.
 - Apply ENVIRONMENT variable that can be read by the container
 
-## Edit the DEPLOYMENT yaml text file using the AZ CLI online editor {}. 
-
 23. Copy the code below to an editor and perform a search and replace on firstname to your name.  
 
+## Edit the DEPLOYMENT yaml text file using the AZ CLI online editor {}. 
+
 24. Open the deployment yaml file (firstname-deploy.yaml) by first clicking the icon for the AZ CLI editor {} and then pasting over the new code.
+
+ ![Editor.](media/az-cli-editor.png "Editor") 
 
 ```
 apiVersion: apps/v1
