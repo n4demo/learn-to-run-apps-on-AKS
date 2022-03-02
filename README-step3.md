@@ -4,11 +4,11 @@
 
 - Apply DEPLOYMENT POD SERVICEACCOUNT: Not mount a security token hence revoking permissions to the K8s API server, prevent containers running as root (admin), cannot escalate, read only file system, minimum capabilites.
 - Apply REPLICAS to increase the number of PODS each hosting a single NGINX container to 2.
-- Apply POD RESOURCES REQUESTS: 20% of a CPU Core upon startup and LIMITS to 20% of CPU.
-- Apply POD RESOURCES REQUESTS: 200MB of memory at startup and LIMITS to 200MB of memory.
-- Apply DEPLOYMENT READINESS PROBE to determine if the container should receive traffic.
-- Apply DEPLOYMENT LIVENESS PROBE to determine whether a container is responsive. If not kill it and create new one.
-- Apply ENVIRONMENT variable whose value can be read by the container
+- Apply CONTAINER RESOURCES REQUESTS: 20% of a CPU Core upon startup and LIMITS to 20% of CPU.
+- Apply CONTAINER RESOURCES REQUESTS: 200MB of memory at startup and LIMITS to 200MB of memory.
+- Apply CONTAINER READINESS PROBE to determine if the container should receive traffic.
+- Apply CONTAINER LIVENESS PROBE to determine whether a container is responsive. If not kill it and create new one.
+- Apply ENVIRONMENT variable whose value can be read by the CONTAINER
 
 23. Copy the code below to an editor and perform a search and replace on firstname to your name.  
 
