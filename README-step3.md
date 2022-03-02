@@ -6,8 +6,9 @@
 - Apply REPLICAS to increase the number of PODS each hosting a single NGINX container to 2.
 - Apply POD RESOURCES REQUESTS: 20% of a CPU Core upon startup and LIMITS to 20% of CPU.
 - Apply POD RESOURCES REQUESTS: 200MB of memory at startup and LIMITS to 200MB of memory.
-- Apply DEPLOYMENT READINESS and LIVENESS PROBES to probe when a container is ready to receive requests and is still responsive.
-- Apply ENVIRONMENT variable that can be read by the container
+- Apply DEPLOYMENT READINESS PROBE to determine if the container should receive traffic.
+- Apply DEPLOYMENT LIVENESS PROBE to determine whether a container is responsive. If not kill it and create new one.
+- Apply ENVIRONMENT variable whose value can be read by the container
 
 23. Copy the code below to an editor and perform a search and replace on firstname to your name.  
 
