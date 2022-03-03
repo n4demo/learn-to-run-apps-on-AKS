@@ -27,7 +27,7 @@ metadata:
   name: firstname-deploy
   namespace: firstname
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: firstname-deploy
@@ -45,25 +45,24 @@ spec:
         securityContext:
           allowPrivilegeEscalation: false
           readOnlyRootFilesystem: true
-          runAsUser: 1000
+          runAsUser: 0
         env:
         - name: MESSAGE
           value: "hello world"
-        command: ["/bin/echo"]
-        args: 
-        - "$(MESSAGE) > /data/world.txt"
+        command: ["/bin/sh"]
+        args: ["-c", "sleep 10000"]
         volumeMounts:
         - name: pod-storage
           mountPath: /data
       - image: nginx
         name: nginx
         securityContext:
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
-          runAsUser: 1001
+          allowPrivilegeEscalation: true
+          readOnlyRootFilesystem: false
+          runAsUser: 0
           capabilities:
-            drop: 
-             - all
+           # drop: 
+            # - all
             add: 
              - NET_BIND_SERVICE
         env:
@@ -91,6 +90,7 @@ spec:
       volumes:
       - name: pod-storage
         emptyDir: {}       
+  
 
 ```
 
