@@ -49,6 +49,18 @@ spec:
       serviceAccountName: firstname-sa
       automountServiceAccountToken: false
       containers:
+      - image: busybox
+        name: busybox
+        env:
+        - name: MESSAGE
+          value: "hello world"
+        command: ["/bin/echo"]
+        args: 
+        - "$(MESSAGE)"
+        - > /data/world.txt
+        volumeMounts:
+        - name: pod-storage
+          mountPath: /data
       - image: nginx
         name: nginx
         env:
@@ -72,7 +84,10 @@ spec:
             path: /
             port: 80
           initialDelaySeconds: 3
-          periodSeconds: 3    
+          periodSeconds: 3 
+      volumes:
+      - name: pod-storage
+        emptyDir: {}       
 ```
 
 25. From the Editor click ... Save
