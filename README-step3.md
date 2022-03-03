@@ -37,32 +37,35 @@ spec:
       labels:
         app: firstname-deploy
     spec:
-      securityContext:
-        readOnlyRootFilesystem: true
-        runAsUser: 1000
-          capabilities:
-            drop: 
-             - all
-            add: 
-             - NET_BIND_SERVICE
-        allowPrivilegeEscalation: false
       serviceAccountName: firstname-sa
       automountServiceAccountToken: false
       containers:
       - image: busybox
         name: busybox
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          runAsUser: 1000
         env:
         - name: MESSAGE
           value: "hello world"
         command: ["/bin/echo"]
         args: 
-        - "$(MESSAGE)"
-        - > /data/world.txt
+        - "$(MESSAGE) > /data/world.txt"
         volumeMounts:
         - name: pod-storage
           mountPath: /data
       - image: nginx
         name: nginx
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          runAsUser: 1001
+          capabilities:
+            drop: 
+             - all
+            add: 
+             - NET_BIND_SERVICE
         env:
          - name: NEWS_URL
            value: http://bbc.co.uk/news
@@ -88,6 +91,7 @@ spec:
       volumes:
       - name: pod-storage
         emptyDir: {}       
+
 ```
 
 25. From the Editor click ... Save
