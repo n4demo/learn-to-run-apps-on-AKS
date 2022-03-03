@@ -12,7 +12,7 @@ Developers, Solution Architects
 ## Prerequisites
 
 1. Request access rights to your Kubernetes cluster (K8s) from your trainer
-2. For MS AKS, in a browser go to https://portal.azure.com
+2. For MS AKS, in a browser go to https://portal.azure.com/nigelwardlehotmail.onmicrosoft.com
 3. Find Azure Subscriptions and select the *Visual Studio Enterprise Subscription MPN*, or the Azure Subscription that has an AKS training cluster already provisioned.  
 4. From the top search bar, search under AKS to find your cluster (aks-demo).
 
