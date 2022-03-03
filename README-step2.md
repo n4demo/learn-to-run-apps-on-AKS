@@ -127,7 +127,6 @@ k logs  --namespace firstname
 
 15. Go to step 3
 
-*https://github.com/n4demo/learn-to-run-apps-on-kubernetes/blob/main/README-step3.md*
 
 
 
