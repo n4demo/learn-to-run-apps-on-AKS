@@ -1,5 +1,7 @@
 # Learn to run apps on AKS - Step 2 of 3 
 
+ ![AKS highlighted on the menu bar.](media/k8s.png "AKS")
+
 ### Kubectl Cheat sheet https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 ### helpful commands:
