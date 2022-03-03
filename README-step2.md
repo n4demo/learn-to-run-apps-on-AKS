@@ -9,7 +9,9 @@
 #### view file: *cat my-file.yaml*
 #### Show K8s objects: *kubectl get all --namespace=my-namespace*
 
-## All commands can be executed by copying from browser to the AZ CLI: >_
+## All commands can be executed by copying to the AZ CLI: >_
+
+ ![The cloud shell icon is highlighted on the menu bar.](media/b4-image35.png "Cloud Shell")
 
 14. to Save us typing - let's create a linux ALIAS for the kubectl.exe command:
 
