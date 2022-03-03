@@ -1,6 +1,6 @@
 # Learn to run apps on AKS - Step 3 of 3
 
-## Configure and lock down the DEPLOYMENT by updating the yaml file and re-deploying:
+## Configure and lock down whereever possible the DEPLOYMENT by updating the yaml file and re-deploying:
 
 - Apply DEPLOYMENT POD SERVICEACCOUNT: Not mount a security token hence revoking permissions to the K8s API server, prevent containers running as root (admin), cannot escalate, read only file system, minimum capabilites.
 - Apply REPLICAS to increase the number of PODS each hosting a single NGINX container to 2.
@@ -9,6 +9,7 @@
 - Apply CONTAINER READINESS PROBE to determine if the container should receive traffic.
 - Apply CONTAINER LIVENESS PROBE to determine whether a container is responsive. If not kill it and create new one.
 - Apply ENVIRONMENT variable whose value can be read by the CONTAINER
+- Add a BUSYBOX sidecar container
 
 23. Copy the code below to an editor and perform a search and replace on firstname to your name.  
 
@@ -119,25 +120,28 @@ k get all -n firstname
 ```
 
 ```
-firstname@Azure:~$ k get all -n firstname
+nigel@Azure:~$ k get all -n firstname
 NAME                                    READY   STATUS    RESTARTS   AGE
-pod/firstname-deploy-659554944c-kwkd6   1/1     Running   0          15m
-pod/firstname-deploy-659554944c-qsf7g   1/1     Running   0          15m
+pod/firstname-deploy-5db79fcb6c-qp6x5   2/2     Running   0          5m54s
 
-NAME                             TYPE           CLUSTER-IP   EXTERNAL-IP     PORT(S)        AGE
-service/firstname-loadbalancer   LoadBalancer   10.0.148.1   20.108.129.15   80:30209/TCP   21m
+NAME                             TYPE           CLUSTER-IP   EXTERNAL-IP    PORT(S)        AGE
+service/firstname-loadbalancer   LoadBalancer   10.0.58.29   20.50.108.59   80:31079/TCP   129m
 
 NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/firstname-deploy   2/2     2            2           22m
+deployment.apps/firstname-deploy   1/1     1            1           10m
 
 NAME                                          DESIRED   CURRENT   READY   AGE
-replicaset.apps/firstname-deploy-659554944c   2         2         2       15m
-replicaset.apps/firstname-deploy-74bccf899c   0         0         0       22m
+replicaset.apps/firstname-deploy-5c5548996    0         0         0       4m13s
+replicaset.apps/firstname-deploy-5db79fcb6c   1         1         1       5m54s
+replicaset.apps/firstname-deploy-7665c6ccf7   0         0         0       10m
+replicaset.apps/firstname-deploy-848c64d7c7   0         0         0       7m37s
+replicaset.apps/firstname-deploy-cc4c59b69    0         0         0       5m11s
+nigel@Azure:~$ 
 ```
 
 29. Run a browser and enter the IP address as below. All being well you should see the homepage of the NGINX app 
 
-*http://20.108.129.15*
+*http://20.50.108.59*
 
 30. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
 
