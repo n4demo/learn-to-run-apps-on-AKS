@@ -1,7 +1,32 @@
 # Learn to run apps on AKS - Step 3 of 3
 
-## Configure and lock down whereever possible the DEPLOYMENT by updating the yaml file and re-deploying:
+## Configure and lock down wherever possible updating the yaml files using the AZ CLI and re-deploying:
 
+ ![Editor.](media/az-cli-editor.png "Editor") 
+
+- Apply RESOURCE QUOTA to you NAMESPACE
+
+1. From the editor paste in the following yaml and save as resourcequota.yaml
+
+```
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: mem-cpu-demo
+spec:
+  hard:
+    requests.cpu: "1"
+    requests.memory: 1Gi
+    limits.cpu: "2"
+    limits.memory: 2Gi
+```
+
+Apply the Quota to your namespace
+```
+kubectl apply -f resourcequota.yaml --namespace=firstname
+```
+
+2.
 - Apply DEPLOYMENT POD SERVICEACCOUNT: Not mount a security token hence revoking permissions to the K8s API server, prevent containers running as root (admin), cannot escalate, read only file system, minimum capabilites.
 - Apply REPLICAS to increase the number of PODS each hosting a single NGINX container to 2.
 - Apply CONTAINER RESOURCES REQUESTS: 20% of a CPU Core upon startup and LIMITS to 20% of CPU.
@@ -11,13 +36,11 @@
 - Apply ENVIRONMENT variable whose value can be read by the CONTAINER
 - Add a BUSYBOX sidecar container
 
-23. Copy the code below to an editor and perform a search and replace on firstname to your name.  
+3. Copy the code below to an editor and perform a search and replace on firstname to your name.  
 
 ## Edit the DEPLOYMENT yaml text file using the AZ CLI online editor {}. 
 
-24. Open the deployment yaml file (firstname-deploy.yaml) by first clicking the icon for the AZ CLI editor {} and then pasting over the new code.
-
- ![Editor.](media/az-cli-editor.png "Editor") 
+4. Open the deployment yaml file (firstname-deploy.yaml) by first clicking the icon for the AZ CLI editor {} and then pasting over the new code.
 
 ```
 apiVersion: apps/v1
@@ -95,9 +118,9 @@ spec:
 
 ```
 
-25. From the Editor click ... Save
+5. From the Editor click ... Save
 
-26. From the AZ CLI - list the file then use the file to update the actual DEPLOYMENT in AKS:
+6. From the AZ CLI - list the file then use the file to update the actual DEPLOYMENT in AKS:
 
 ```
 ls
@@ -107,13 +130,13 @@ ls
 k apply -f firstname-deploy.yaml
 ```
 
-27. Now get K8s to return a yaml for the updated configuration:
+7. Now get K8s to return a yaml for the updated configuration:
 
 ```
 k get deploy firstname-deploy -o yaml
 ```
 
-28. Check to see if all the objects are ready. Repeat until you can obtain the IP address of the load balancer: 
+8. Check to see if all the objects are ready. Repeat until you can obtain the IP address of the load balancer: 
 
 ```
 k get all -n firstname
@@ -139,13 +162,13 @@ replicaset.apps/firstname-deploy-cc4c59b69    0         0         0       5m11s
 nigel@Azure:~$ 
 ```
 
-29. Run a browser and enter the IP address as below. All being well you should see the homepage of the NGINX app 
+9. Run a browser and enter the IP address as below. All being well you should see the homepage of the NGINX app 
 
 *http://20.50.108.59*
 
-30. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
+10. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
 
-31. Go to step 4
+11. Go to step 4 - Quiz.
 
 
 
