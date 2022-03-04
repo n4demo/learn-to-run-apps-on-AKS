@@ -145,12 +145,7 @@ nigel@Azure:~$
 
 30. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
 
-### Congratulations! Next steps: https://www.cncf.io/certification/ckad/
-
-### Optional: 
-
-31. Create a configmap object containing an environment variable firstname=brian. Injec this environment variable into the POD. 
-#### hint https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/
+31. Go to step 4
 
 
 
