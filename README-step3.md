@@ -174,7 +174,7 @@ nigel@Azure:~$
 
 12. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
 
-13. Go to step 4 - Quiz.
+13. Go to GitOps.
 
 
 

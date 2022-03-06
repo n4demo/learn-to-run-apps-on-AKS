@@ -6,6 +6,18 @@
 
 3. I need to deploy three micro-service based apps into AKS and I want to follow best practice. After I have completed this task, how many yaml files should end up being stored in my source control repository? Name them.
 
+4. In a non production environment I may choose to use the following commands:
+
+```
+kubectl create deployment nginx --image=nginx
+kubectl create cronjob hello --image=busybox   --schedule="*/1 * * * *" -- echo "Hello World"
+kubectl expose rc nginx --port=80 --target-port=8000
+kubectl autoscale deployment foo --min=2 --max=10
+kubectl scale --replicas=5 rc/foo rc/bar rc/baz
+kubectl delete pods,services -l name=myLabel
+```
+
+5. Would I use these commands in a production environment? If not how would I edit my Kubernetes resources?
 
 
 
