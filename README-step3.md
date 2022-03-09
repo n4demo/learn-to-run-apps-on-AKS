@@ -37,6 +37,7 @@ kubectl get resourcequota my-quota --namespace=firstname --output=yaml
 ```
 
 4.
+
 - Apply DEPLOYMENT POD SERVICEACCOUNT: Not mount a security token hence revoking permissions to the K8s API server, prevent containers running as root (admin), cannot escalate, read only file system, minimum capabilites.
 - Apply REPLICAS to increase the number of PODS each hosting a single NGINX container to 2.
 - Apply CONTAINER RESOURCES REQUESTS: 20% of a CPU Core upon startup and LIMITS to 20% of CPU.
