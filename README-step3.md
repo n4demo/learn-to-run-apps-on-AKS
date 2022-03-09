@@ -12,13 +12,17 @@
 apiVersion: v1
 kind: ResourceQuota
 metadata:
-  name: mem-cpu-demo
+  name: my-quota
 spec:
   hard:
+    pods: "4"
+    services: "2"
+    services.loadbalancers: "2"
+    secrets: "2"
     requests.cpu: "1"
     requests.memory: 1Gi
     limits.cpu: "2"
-    limits.memory: 2Gi
+    limits.memory: 2Gi   
 ```
 
 2. Apply the Quota to your namespace
@@ -29,7 +33,7 @@ kubectl apply -f resourcequota.yaml --namespace=firstname
 3. View detailed information about the ResourceQuota:
 
 ```
-kubectl get resourcequota mem-cpu-demo --namespace=firstname --output=yaml
+kubectl get resourcequota my-quota --namespace=firstname --output=yaml
 ```
 
 4.
