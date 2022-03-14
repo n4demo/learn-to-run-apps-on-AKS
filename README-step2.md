@@ -72,10 +72,19 @@ k create serviceaccount test-sa --namespace=test --dry-run=client --output yaml 
 cat test-sa.yaml
 ```
 
-9. From the AZ CLI, use the file to create the actual SERVICEACCOUNT in AKS:
+9a. From the AZ CLI, use the file to create the actual SERVICEACCOUNT in AKS:
 
 ```
 k create -n=test --filename test-sa.yaml
+```
+
+9b. Create a new yaml formatted text file (test-cm.yaml) containing a new CONFIGMAP in your own NAMESPACE:
+```
+k create configmap test-cm --from-literal=name=test --dry-run=client -n=test --output yaml > test-cm.yaml
+```
+
+```
+k create -f test-cm.yaml
 ```
 
 10. Create a new yaml formatted text file (test-deploy.yaml) containing a new DEPLOYMENT (test-deploy) in your own NAMESPACE: 
@@ -137,6 +146,8 @@ k logs  --namespace test
 ```
 
 ### Congratulations - you now know how to deploy a single application container to AKS using best practice YAML files!! 
+
+## Note: We have yet to use the ServiceAccount or ConfigMap.
 
 18. Go to step 3
 
