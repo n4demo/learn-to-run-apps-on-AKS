@@ -94,7 +94,9 @@ cat test-deploy.yaml
 
 ```
 k create -f test-deploy.yaml
+```
 
+```
 k describe deploy test-deploy
 ```
 
@@ -114,7 +116,9 @@ cat test-service.yaml
 
 ```
 k create -f test-service.yaml
+```
 
+```
 k describe service test-loadbalancer
 ```
 
