@@ -64,6 +64,8 @@ echo YWRtaW4K | base64 -d
 
 k expose deploy nginx --name=nginx-service --port=8080 --target-port=80 --type=LoadBalancer
 
+kubectl create configmap my-config --from-literal=key1=config1 --from-literal=key2=config2
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
