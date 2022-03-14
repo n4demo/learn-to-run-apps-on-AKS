@@ -17,12 +17,13 @@
 
 ```
 alias k=kubectl
-```
 
-2. Check that the alias works:
-
-```
 k version
+```
+
+2. Create temp folder and set working directory
+```
+mkdir temp && cd temp
 ```
 
 ### Now we are ready to go. To deploy our NGINX app in a container to AKS using best practice we have 4 ordered tasks to do:
