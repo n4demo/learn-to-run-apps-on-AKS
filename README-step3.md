@@ -27,13 +27,13 @@ spec:
 
 2. Apply the Quota to your namespace
 ```
-kubectl apply -f resourcequota.yaml --namespace=firstname
+kubectl apply -f resourcequota.yaml --namespace=test
 ```
 
 3. View detailed information about the ResourceQuota:
 
 ```
-kubectl get resourcequota my-quota --namespace=firstname --output=yaml
+kubectl get resourcequota my-quota --namespace=test --output=yaml
 ```
 
 4.
@@ -47,32 +47,32 @@ kubectl get resourcequota my-quota --namespace=firstname --output=yaml
 - Apply ENVIRONMENT variable whose value can be read by the CONTAINER
 - Add a BUSYBOX sidecar container
 
-5. Copy the code below to an editor and perform a search and replace on firstname to your name.  
+5. Copy the code below to an editor and perform a search and replace on test to your name.  
 
 ## Edit the DEPLOYMENT yaml text file using the AZ CLI online editor {}. 
 
-6. Open the deployment yaml file (firstname-deploy.yaml) by first clicking the icon for the AZ CLI editor {} and then pasting over the new code.
+6. Open the deployment yaml file (test-deploy.yaml) by first clicking the icon for the AZ CLI editor {} and then pasting over the new code.
 
 ```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: firstname-deploy
-  name: firstname-deploy
-  namespace: firstname
+    app: test-deploy
+  name: test-deploy
+  namespace: test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: firstname-deploy
+      app: test-deploy
   strategy: {}
   template:
     metadata:
       labels:
-        app: firstname-deploy
+        app: test-deploy
     spec:
-      serviceAccountName: firstname-sa
+      serviceAccountName: test-sa
       automountServiceAccountToken: false
       containers:
       - image: busybox
@@ -138,38 +138,38 @@ ls
 ```
 
 ```
-k apply -f firstname-deploy.yaml
+k apply -f test-deploy.yaml
 ```
 
 9. Now get K8s to return a yaml for the updated configuration:
 
 ```
-k get deploy firstname-deploy -o yaml
+k get deploy test-deploy -o yaml
 ```
 
 10. Check to see if all the objects are ready. Repeat until you can obtain the IP address of the load balancer: 
 
 ```
-k get all -n firstname
+k get all -n test
 ```
 
 ```
-nigel@Azure:~$ k get all -n firstname
+nigel@Azure:~$ k get all -n test
 NAME                                    READY   STATUS    RESTARTS   AGE
-pod/firstname-deploy-5db79fcb6c-qp6x5   2/2     Running   0          5m54s
+pod/test-deploy-5db79fcb6c-qp6x5   2/2     Running   0          5m54s
 
 NAME                             TYPE           CLUSTER-IP   EXTERNAL-IP    PORT(S)        AGE
-service/firstname-loadbalancer   LoadBalancer   10.0.58.29   20.50.108.59   80:31079/TCP   129m
+service/test-loadbalancer   LoadBalancer   10.0.58.29   20.50.108.59   80:31079/TCP   129m
 
 NAME                               READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/firstname-deploy   1/1     1            1           10m
+deployment.apps/test-deploy   1/1     1            1           10m
 
 NAME                                          DESIRED   CURRENT   READY   AGE
-replicaset.apps/firstname-deploy-5c5548996    0         0         0       4m13s
-replicaset.apps/firstname-deploy-5db79fcb6c   1         1         1       5m54s
-replicaset.apps/firstname-deploy-7665c6ccf7   0         0         0       10m
-replicaset.apps/firstname-deploy-848c64d7c7   0         0         0       7m37s
-replicaset.apps/firstname-deploy-cc4c59b69    0         0         0       5m11s
+replicaset.apps/test-deploy-5c5548996    0         0         0       4m13s
+replicaset.apps/test-deploy-5db79fcb6c   1         1         1       5m54s
+replicaset.apps/test-deploy-7665c6ccf7   0         0         0       10m
+replicaset.apps/test-deploy-848c64d7c7   0         0         0       7m37s
+replicaset.apps/test-deploy-cc4c59b69    0         0         0       5m11s
 nigel@Azure:~$ 
 ```
 

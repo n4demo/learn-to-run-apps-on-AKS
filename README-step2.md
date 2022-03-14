@@ -33,88 +33,88 @@ k version
 
 ### We will perform each task by creating and in future editing a YAML text file. This so we can edit and apply to any K8s cluster, saved into source control such as GIT and applied through GitOps.
 
-## - Important. Replace firstname with your own first name
+## - Important. Replace test with your own first name
 
-3. Create a new yaml formatted text file (firstname-ns.yaml) containing a new NAMESPACE by using the kubectl command:
-
-```
-k create namespace firstname --dry-run=client --output yaml > firstname-ns.yaml
-```
-
-4. From the AZ CLI - view the content of firstname-ns.yaml:
+3. Create a new yaml formatted text file (test-ns.yaml) containing a new NAMESPACE by using the kubectl command:
 
 ```
-cat firstname-ns.yaml
+k create namespace test --dry-run=client --output yaml > test-ns.yaml
+```
+
+4. From the AZ CLI - view the content of test-ns.yaml:
+
+```
+cat test-ns.yaml
 ```
 
 5. From the AZ CLI - use the yaml file to create the actual NAMESPACE in the AKS cluster:
 
 ```
-k create --filename firstname-ns.yaml
+k create --filename test-ns.yaml
 ```
 
-6. From the AZ CLI - switch into this NAMESPACE (if you don't, you will need to include -n=firstname in every following command):
+6. From the AZ CLI - switch into this NAMESPACE (if you don't, you will need to include -n=test in every following command):
 
 ```
-k config set-context --current --namespace=firstname
+k config set-context --current --namespace=test
 ```
 
-7. Create a new yaml formatted text file (firstname-sa.yaml) containing a new SERVICEACCOUNT in your own NAMESPACE: 
+7. Create a new yaml formatted text file (test-sa.yaml) containing a new SERVICEACCOUNT in your own NAMESPACE: 
 
 ```
-k create serviceaccount firstname-sa --namespace=firstname --dry-run=client --output yaml > firstname-sa.yaml
+k create serviceaccount test-sa --namespace=test --dry-run=client --output yaml > test-sa.yaml
 ```
 
-8. From the AZ CLI - view the content of firstname-sa.yaml:
+8. From the AZ CLI - view the content of test-sa.yaml:
 
 ```
-cat firstname-sa.yaml
+cat test-sa.yaml
 ```
 
 9. From the AZ CLI, use the file to create the actual SERVICEACCOUNT in AKS:
 
 ```
-k create -n=firstname --filename firstname-sa.yaml
+k create -n=test --filename test-sa.yaml
 ```
 
-10. Create a new yaml formatted text file (firstname-deploy.yaml) containing a new DEPLOYMENT (firstname-deploy) in your own NAMESPACE: 
+10. Create a new yaml formatted text file (test-deploy.yaml) containing a new DEPLOYMENT (test-deploy) in your own NAMESPACE: 
 
 ```
-k create deployment firstname-deploy --dry-run=client -n=firstname --replicas=1 --image=nginx --output yaml > firstname-deploy.yaml
+k create deployment test-deploy --dry-run=client -n=test --replicas=1 --image=nginx --output yaml > test-deploy.yaml
 ```
 
-11. From the AZ CLI - view the contents of firstname-deploy.yaml:
+11. From the AZ CLI - view the contents of test-deploy.yaml:
 
 ```
-cat firstname-deploy.yaml
+cat test-deploy.yaml
 ```
 
 12. From the AZ CLI - use the file to create the actual DEPLOYMENT in AKS:
 
 ```
-k create -f firstname-deploy.yaml
+k create -f test-deploy.yaml
 
-k describe deploy firstname-deploy
+k describe deploy test-deploy
 ```
 
-13. Create a new yaml formatted text file (firstname-service.yaml) containing a new SERVICE pointing to your DEPLOYMENT (firstname-deploy) in your own NAMESPACE:
+13. Create a new yaml formatted text file (test-service.yaml) containing a new SERVICE pointing to your DEPLOYMENT (test-deploy) in your own NAMESPACE:
 
 ```
-k expose deployment firstname-deploy --name=firstname-loadbalancer --type=LoadBalancer --port=80 --target-port=80 --dry-run=client -n=firstname -o yaml > firstname-service.yaml
+k expose deployment test-deploy --name=test-loadbalancer --type=LoadBalancer --port=80 --target-port=80 --dry-run=client -n=test -o yaml > test-service.yaml
 ```
 
-14. From the AZ CLI - view the contents of firstname-service.yaml:
+14. From the AZ CLI - view the contents of test-service.yaml:
 
 ```
-cat firstname-service.yaml
+cat test-service.yaml
 ```
 
 15. From the AZ CLI - use the file to create the SERVICE (Azure load balancer) in AKS:
 
 ```
-k create -f firstname-service.yaml
+k create -f test-service.yaml
 
-k describe service firstname-loadbalancer
+k describe service test-loadbalancer
 ```
 
 16. Check to see if all the objects are ready. Repeat until you can obtain the IP address of the load balancer: 
@@ -128,7 +128,7 @@ k get all -o wide
 *http://ip-address*
 
 ```
-k logs  --namespace firstname
+k logs  --namespace test
 ```
 
 ### Congratulations - you now know how to deploy a single application container to AKS using best practice YAML files!! 
