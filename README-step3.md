@@ -4,7 +4,7 @@
 
  ![Editor.](media/az-cli-editor.png "Editor") 
 
-- Apply RESOURCE QUOTA to you NAMESPACE
+- Apply RESOURCE QUOTA to your NAMESPACE
 
 1. From the editor paste in the following yaml and save as resourcequota.yaml
 
