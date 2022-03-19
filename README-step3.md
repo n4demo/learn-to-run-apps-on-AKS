@@ -4,7 +4,7 @@
 
  ![Editor.](media/az-cli-editor.png "Editor") 
 
-- Apply RESOURCE QUOTA to you NAMESPACE
+- Apply RESOURCE QUOTA to your NAMESPACE
 
 1. From the editor paste in the following yaml and save as resourcequota.yaml
 
@@ -177,17 +177,39 @@ nigel@Azure:~$
 
 *http://20.50.108.59*
 
+## Congratulations!!
+
+- Optionally - apply HORIZONTALPODAUTOSCALER to your DEPLOYMENT
+
+12. From the editor paste in the following yaml and save as hpa.yaml
+
+```
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: test
+spec:
+  maxReplicas: 10
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: test-deploy
+  targetCPUUtilizationPercentage: 50 
+```
+
+13. Apply the HPA, specifying the namespace of your deployment
+
+```
+kubectl apply -f hpa.yaml --namespace=test
+```
+
+14. View detailed information about the HPA:
+
+```
+kubectl get hpa test --namespace=test --output=yaml
+```
+
 12. In the Azure Portal select the AKS cluster and click Workloads. Navigate freely to see K8s objects that have been created.
 
 13. Go to GitOps.
-
-
-
-
-    
-
-
-
-
-
-
