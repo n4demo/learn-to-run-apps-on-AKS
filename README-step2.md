@@ -54,6 +54,10 @@ cat test-ns.yaml
 k create --filename test-ns.yaml
 ```
 
+```
+k get events
+```
+
 6. From the AZ CLI - switch into this NAMESPACE (if you don't, you will need to include -n=test in every following command):
 
 ```
