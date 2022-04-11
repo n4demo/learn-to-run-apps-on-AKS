@@ -34,7 +34,10 @@ mkdir temp && cd temp
 
 ### We will perform each task by creating and in future editing a YAML text file. This so we can edit and apply to any K8s cluster, saved into source control such as GIT and applied through GitOps.
 
-## - Important. Replace test with your own first name
+## - VERY IMPORTANT. Replace 'test' with your own first name thoughout *************************
+## - VERY IMPORTANT. Replace 'test' with your own first name thoughout *************************
+## - VERY IMPORTANT. Replace 'test' with your own first name thoughout *************************
+## - VERY IMPORTANT. Replace 'test' with your own first name thoughout *************************
 
 3. Create a new yaml formatted text file (test-ns.yaml) containing a new NAMESPACE by using the kubectl command:
 
