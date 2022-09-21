@@ -37,7 +37,7 @@ kubectl get resourcequota my-quota --namespace=test --output=yaml
 ```
 
 4.
-
+- Enforce POD SECURITY STANDARDS to test namespace using Labels
 - Apply DEPLOYMENT POD SERVICEACCOUNT: Not mount a security token hence revoking permissions to the K8s API server, prevent containers running as root (admin), cannot escalate, read only file system, minimum capabilites.
 - Apply REPLICAS to increase the number of PODS each hosting a single NGINX container to 2.
 - Apply CONTAINER RESOURCES REQUESTS: 20% of a CPU Core upon startup and LIMITS to 20% of CPU.
@@ -46,6 +46,11 @@ kubectl get resourcequota my-quota --namespace=test --output=yaml
 - Apply CONTAINER LIVENESS PROBE to determine whether a container is responsive. If not kill it and create new one.
 - Apply ENVIRONMENT variable whose value can be read by the CONTAINER
 - Add a BUSYBOX sidecar container
+
+4a. 
+```
+k label --overwrite ns test pod-security.kubernetes.io/enforce=restricted pod-security.kubernetes.io/enforce-version=v1.25
+```
 
 5. Copy the code below to an editor and perform a search and replace on test to your name.  
 
